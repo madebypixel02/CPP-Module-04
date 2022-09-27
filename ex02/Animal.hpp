@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:38:40 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/27 18:00:19 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:42:41 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class Animal
 {
 	protected:
-		std::string	_type;
-	public:
-		/* Constructors & Destructors */
 		Animal(void);
 		Animal(std::string const &type);
 		Animal(Animal const &copy);
+		std::string	_type;
+	public:
+		/* Constructors & Destructors */
 		virtual ~Animal(void);
 
 		/* Basic Operators */

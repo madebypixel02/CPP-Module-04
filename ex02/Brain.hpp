@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 12:38:40 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/27 18:00:19 by aperez-b         ###   ########.fr       */
+/*   Created: 2022/09/26 14:02:27 by aperez-b          #+#    #+#             */
+/*   Updated: 2022/09/26 15:04:21 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include <iostream>
-#include "Brain.hpp"
 
-class Animal
+class Brain
 {
-	protected:
-		std::string	_type;
+	private:
+		std::string	_ideas[100];
 	public:
 		/* Constructors & Destructors */
-		Animal(void);
-		Animal(std::string const &type);
-		Animal(Animal const &copy);
-		virtual ~Animal(void);
+		Brain(void);
+		Brain(Brain const &copy);
+		~Brain(void);
 
 		/* Basic Operators */
-		Animal const	&operator=(Animal const &copy);
+		Brain const	&operator=(Brain const &copy);
 
 		/* Getters & Setters */
-		std::string const	&getType(void) const;
-		void				setType(std::string const &type);
-		virtual Brain 		&getBrain(void) const = 0;
-
-		/* Main member functions */
-		virtual void	makeSound(void) const;
+		std::string const	&getIdea(int const &index) const;
+		void				setIdea(std::string const &idea, int const &index);
 };
