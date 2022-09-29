@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:22 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 16:54:22 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:40:00 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,24 @@ MateriaSource const	&MateriaSource::operator=(const MateriaSource &copy)
 
 void	MateriaSource::learnMateria(AMateria *materia)
 {
-	int	i = 0;
-	while (i < 4)
+	for (int i = 0; i < 4; i++)
 	{
 		if (materia && this->_learnInventory[i] == NULL)
 		{
-			this->_learnInventory[i] = materia;
+			if (this->inLearnInventory(materia))
+				this->_learnInventory[i] = materia;
+			else
+				this->_learnInventory[i] = materia;
 			std::cout << "Materia " << this->_learnInventory[i]->getType() << " learned at index " << i << std::endl;
-			break ;
+			return ;
 		}
-		i++;
 	}
-	if (i == 4 && materia)
+	if (materia)
 		std::cout << "Cannot learn materia, inventory for MateriaSource is full!" << std::endl;
-	else if (i == 4)
+	else
 		std::cout << "Cannot learn invalid materia" << std::endl;
+	if (!this->inLearnInventory(materia))
+		delete materia;
 }
 
 AMateria	*MateriaSource::createMateria(const std::string &type)
@@ -70,5 +73,15 @@ AMateria	*MateriaSource::createMateria(const std::string &type)
 			return (this->_learnInventory[i]->clone());
 	}
 	std::cout << "Cannot create materia, " << type << " is invalid!" << std::endl;
+	return (0);
+}
+
+int MateriaSource::inLearnInventory(AMateria *materia)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_learnInventory[i] == materia)
+			return (1);
+	}
 	return (0);
 }

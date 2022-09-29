@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:04 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 14:07:17 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:40:12 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ class MateriaSource: public IMateriaSource
 		/* Main Member Functions */
 		virtual void		learnMateria(AMateria *materia);
 		virtual AMateria*	createMateria(std::string const &type);
+		int 				inLearnInventory(AMateria *materia);
 };

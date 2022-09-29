@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:44 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 14:28:09 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:12:04 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ class Character: public ICharacter
 		virtual void	equip(AMateria *m);
 		virtual void	unequip(int idx);
 		virtual void	use(int idx, ICharacter &target);
+		int 			inInventory(AMateria *m);
 };

@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:30:31 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 17:01:53 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:41:34 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-
-/*int main(void)
-{
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
-	return (0);
-}*/
 
 int main() 
 {
@@ -65,7 +45,6 @@ int main()
 		src->learnMateria(new Cure());
 		AMateria *mat = new Cure();
 		src->learnMateria(mat);
-		delete mat;
 		std::cout << std::endl;
 		
 		std::cout << "2. Create 2 new characters and test deep copy:" << std::endl;
@@ -84,16 +63,17 @@ int main()
 		dur2->equip(tmp);
 		tmp = src->createMateria("hi");
 		dur2->equip(tmp);
+		delete src;
 		std::cout << std::endl;
 
 		std::cout << "4. Check maximum equipped too:" << std::endl;
 		AMateria *cure = new Cure();
 		AMateria *ice = new Ice();
 		dur2->equip(cure);
-		dur2->equip(ice);
+		dur2->equip(cure);
 		dur2->equip(ice);
 		dur2->unequip(2);
-		delete cure;
+		delete cure; // Cure must be deleted manually when unequipped
 		dur2->unequip(2);
 		dur2->unequip(6);
 		std::cout << std::endl;
@@ -110,7 +90,6 @@ int main()
 		std::cout << std::endl;
 
 		delete dur2;
-		delete src;
 
 		return (0); 
 	}

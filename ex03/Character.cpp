@@ -51,27 +51,33 @@ Character const	&Character::operator=(const Character &copy)
 
 void	Character::equip(AMateria *m)
 {
-	int	i = 0;
-	while (i < 4)
+	for (int i = 0; i < 4; i++)
 	{
 		if (m && this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = m;
+			if (this->inInventory(m))
+				this->_inventory[i] = m->clone();
+			else
+				this->_inventory[i] = m;
 			std::cout << "Materia " << this->_inventory[i]->getType() << " equipped to " << this->_name << "'s inventory at index " << i << std::endl;
-			break ;
+			return ;
 		}
-		i++;
 	}
-	if (i == 4 && m)
+	if (m)
 		std::cout << "Cannot equip materia, " << this->_name << "'s inventory is full!" << std::endl;
-	else if (i == 4)
+	else
 		std::cout << "Cannot equip invalid materia" << std::endl;
+	if (!this->inInventory(m))
+		delete m;
 }
 
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && this->_inventory[idx])
+	{
+		std::cout << "Unequipped " << this->_inventory[idx]->getType() << " from " << this->_name << "'s inventory at index " << idx << std::endl;
 		this->_inventory[idx] = NULL;
+	}
 	else if (idx < 0 || idx >= 4)
 		std::cout << "Cannot unequip materia, invalid index " << idx << std::endl;
 	else
@@ -86,6 +92,16 @@ void	Character::use(int idx, ICharacter &target)
 		std::cout << "Cannot use materia, invalid index " << idx << std::endl;
 	else
 		std::cout << "Cannot use materia, index " << idx << " is empty!" << std::endl;
+}
+
+int Character::inInventory(AMateria *m)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] == m)
+			return (1);
+	}
+	return (0);
 }
 
 std::string const	&Character::getName(void) const
