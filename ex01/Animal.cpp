@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:38:38 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/27 17:09:46 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:28:37 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Animal::~Animal(void)
 Animal const	&Animal::operator=(Animal const &copy)
 {
 	this->_type = copy.getType();
-	std::cout << "Assignation operator for Animal called." << std::endl;
+	std::cout << "Assignment operator for Animal called." << std::endl;
 	return (*this);
 }
 

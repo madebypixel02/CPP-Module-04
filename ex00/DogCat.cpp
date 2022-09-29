@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:01:28 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/26 14:43:30 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:28:31 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Dog::~Dog(void)
 
 Dog const	&Dog::operator=(Dog const &copy)
 {
-	std::cout << "Assignation operator for Dog from Animal " << Animal::_type << " called." << std::endl;
+	std::cout << "Assignment operator for Dog from Animal " << Animal::_type << " called." << std::endl;
 	Animal::operator=(copy);
 	return (*this);
 }
@@ -78,7 +78,7 @@ Cat::~Cat(void)
 
 Cat const	&Cat::operator=(Cat const &copy)
 {
-	std::cout << "Assignation operator for Cat from Animal " << Animal::_type << " called." << std::endl;
+	std::cout << "Assignment operator for Cat from Animal " << Animal::_type << " called." << std::endl;
 	Animal::operator=(copy);
 	return (*this);
 }

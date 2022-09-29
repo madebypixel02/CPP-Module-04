@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:11:10 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 15:08:59 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:29:10 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ ICharacter::ICharacter(ICharacter const &copy)
 ICharacter const	&ICharacter::operator=(ICharacter const &copy)
 {
 	(void)copy;
-	std::cout << "ICharacter Assignation Operator Called" << std::endl;
+	std::cout << "ICharacter Assignment Operator Called" << std::endl;
 	return (*this);
 }

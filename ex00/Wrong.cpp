@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:40:12 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/26 14:49:35 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:28:33 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal const	&WrongAnimal::operator=(WrongAnimal const &copy)
 {
-	std::cout << "Assignation operator for WrongAnimal " << this->_type << " called." << std::endl;
+	std::cout << "Assignment operator for WrongAnimal " << this->_type << " called." << std::endl;
 	this->_type = copy.getType();
 	return (*this);
 }
@@ -78,7 +78,7 @@ WrongCat::~WrongCat(void)
 
 WrongCat const	&WrongCat::operator=(WrongCat const &copy)
 {
-	std::cout << "Assignation operator for WrongCat from WrongAnimal " << WrongAnimal::_type << " called." << std::endl;
+	std::cout << "Assignment operator for WrongCat from WrongAnimal " << WrongAnimal::_type << " called." << std::endl;
 	WrongAnimal::operator=(copy);
 	return (*this);
 }

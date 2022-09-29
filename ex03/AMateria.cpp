@@ -6,7 +6,7 @@
 /*   By: aperez-b <aperez-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:03:28 by aperez-b          #+#    #+#             */
-/*   Updated: 2022/09/28 15:09:42 by aperez-b         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:29:04 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ AMateria::~AMateria(void)
 AMateria const	&AMateria::operator=(AMateria const &copy)
 {
 	this->_type = copy._type;
-	std::cout << "AMateria Assignation Operator Called" << std::endl;
+	std::cout << "AMateria Assignment Operator Called" << std::endl;
 	return (*this);
 }
 
